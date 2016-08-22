@@ -4,7 +4,7 @@ var path = require('path');
 var BUILD_PATH = path.resolve(__dirname, 'build');
 
 module.exports = {
-  entry: ['./app/app.js'],
+  entry: ['webpack-hot-middleware/client', './app/index.js'],
   output: {
     path: BUILD_PATH,
     publicPath: '/',
@@ -17,6 +17,7 @@ module.exports = {
       { test: /\.json$/, loaders: [ 'json' ], exclude: /node_modules/ }
     ]
   },
+	devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Hot Reloading',
